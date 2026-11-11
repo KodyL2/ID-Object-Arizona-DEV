@@ -1,0 +1,44 @@
+.location-toolbar{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:10px}
+.location-toolbar button,.location-toolbar select,.location-pager button{font:inherit;font-size:12px;padding:7px 10px;border:1px solid var(--line);border-radius:7px;background:var(--panel);color:var(--fg)}
+.location-toolbar button:hover,.location-pager button:hover{background:var(--hover)}
+.location-count{color:var(--mute);font-size:12px;margin-left:auto}
+.location-map{position:relative;height:390px;min-height:240px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#183345}
+.location-map canvas{display:block;width:100%;height:100%;touch-action:none;cursor:grab}
+.location-map canvas:active{cursor:grabbing}
+.location-map canvas:focus-visible{outline:2px solid var(--acc);outline-offset:-3px}
+.location-map-label{position:absolute;left:10px;top:10px;background:#142535e8;color:#fff;padding:6px 9px;border-radius:6px;font-size:11px;pointer-events:none}
+.location-selection{font-size:12px;color:var(--fg);min-height:20px;margin:10px 0;line-height:1.6;overflow-wrap:anywhere}
+.location-note{font-size:11px;line-height:1.6;color:var(--mute);margin:8px 0 14px}
+.location-list{position:relative;max-height:310px;overflow:auto;border:1px solid var(--line);border-radius:9px}
+.location-row{padding:10px 12px;border-bottom:1px solid var(--line)}
+.location-row:last-child{border-bottom:0}
+.location-row.selected{background:var(--acc-bg);box-shadow:inset 4px 0 var(--acc)}
+.location-row.selected code{color:var(--acc)}
+.location-row-top{display:flex;gap:8px;align-items:start;flex-wrap:wrap;margin-bottom:6px}
+.location-row-top button{border:0;background:none;color:var(--acc);text-align:left;padding:0;cursor:pointer;font:inherit;font-size:12px;overflow-wrap:anywhere}
+.location-actions{display:flex;align-items:center;gap:8px;margin-left:auto;flex-shrink:0}
+.location-row-top .location-copy{white-space:nowrap;color:var(--mute);font-size:11px}
+.location-row-top .location-geo{padding:3px 7px;border:1px solid var(--line);border-radius:5px;font-size:11px;white-space:nowrap;background:var(--panel)}
+.location-row-top .location-geo:hover,.location-row-top .location-geo[aria-pressed="true"]{background:var(--acc-bg);border-color:var(--acc)}
+.location-row code{display:block;white-space:pre-wrap;overflow-wrap:anywhere;font-size:11px;line-height:1.6;user-select:text;color:var(--fg)}
+.location-row small{display:block;color:var(--mute);font-size:10px;margin-bottom:4px}
+.location-sources{margin-top:8px;font-size:11px;color:var(--dim)}
+.location-sources summary{cursor:pointer;color:var(--acc);padding:3px 0}
+.location-source{margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.location-source .location-row-top>span:first-child{overflow-wrap:anywhere;min-width:0;flex:1}
+.location-empty{padding:24px 16px;text-align:center;color:var(--mute);font-size:13px;line-height:1.7}
+.location-pager{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:10px;font-size:12px;color:var(--mute)}
+.location-pager button:disabled{opacity:.35;cursor:default}
+.modal-card.location-active{height:min(94vh,820px);height:min(94dvh,820px)}
+.modal-card.location-active .modal-head,.modal-card.location-active .tabs{flex-shrink:0}
+.modal-card.location-active [data-pane="locations"]{display:grid;grid-template-rows:auto minmax(90px,1.3fr) auto auto minmax(0,1fr) auto;flex:1;min-height:0;overflow:hidden}
+.modal-card.location-active [data-pane="locations"][hidden]{display:none}
+.modal-card.location-active .location-toolbar{grid-row:1}
+.modal-card.location-active .location-map{grid-row:2;height:auto;min-height:0}
+.modal-card.location-active .location-selection{grid-row:3}
+.modal-card.location-active .location-note{grid-row:4}
+.modal-card.location-active .location-list{grid-row:5;min-height:0;max-height:none;overflow-y:auto;overscroll-behavior:contain}
+.modal-card.location-active .location-pager{grid-row:6}
+.modal-card.location-active .location-map-label{max-width:calc(100% - 20px)}
+@media(max-height:650px){.modal-card.location-active .location-note{display:none}.modal-card.location-active [data-pane="locations"]{grid-template-rows:auto minmax(60px,1.3fr) auto auto minmax(0,1fr) auto;padding:10px}.modal-card.location-active .location-selection{margin:5px 0;font-size:11px}.modal-card.location-active .location-toolbar{margin-bottom:6px}}
+@media(max-width:600px){.location-map{height:310px}.location-count{width:100%;margin-left:0}.location-toolbar button{padding:7px 8px}}
